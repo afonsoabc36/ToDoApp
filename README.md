@@ -1,2 +1,2 @@
 # ToDoApp
-A ToDo Application using HTML, CSS and «JavaScript, a beginner project.
+A To-Do Application using HTML, CSS and JavaScript, a beginner project.
