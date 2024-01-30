@@ -12,32 +12,46 @@
     padding: 10px;
 }
 
-.todo-app{
+.todo-app {
     width: 100%;
     max-width: 540px;
-    background: #fff;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blurs the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* light border */
+    box-shadow: 0 0 15px 1px rgba(255, 255, 255, 0.6); /* White glow */
 }
 
+/* Fallback for browsers that do not support backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .todo-app {
+        background: rgba(255, 255, 255, 0.9); /* More opaque background */
+        /* You might want to add additional styling for the fallback */
+    }
+}
+
+
 .todo-app h2{
-    color: #002765;
+    color: #fff;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    padding-left: 5px;
 }
 
 .todo-app h2 img{
     width: 30px;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #edeef0;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
@@ -47,11 +61,17 @@ input{
     flex: 1;
     border: none;
     outline: none;
-    background: transparent;
+    background: none;
     padding: 10px;
 }
 
-button{
+input::placeholder{
+    color: #fff;
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+button{ /*TODO: Change the button*/
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -60,4 +80,31 @@ button{
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
+}
+
+ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 10%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.completed{
+    color: #555;
+    text-decoration: line-through;
 }
