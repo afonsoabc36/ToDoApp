@@ -148,3 +148,12 @@ ul li.completed:hover{
 ul li.completed::before{
     background-image: url(images/checked.png);
 }
+
+.todo-app h3{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
